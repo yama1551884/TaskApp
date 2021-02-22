@@ -86,18 +86,22 @@ class MainActivity : AppCompatActivity() {
 
         searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextChange(newText: String): Boolean {
-                // text changed
-                return false
+                if (newText.isEmpty()) {
+                    reloadListView()
+                }
+                return true
             }
             override fun onQueryTextSubmit(query: String): Boolean {
                 // submit button pressed
-                val results2 = mRealm.where(Task::class.java).equalTo("category", task.category).findAll().sort("date", Sort.DESCENDING)
+                val results2 = mRealm.where(Task::class.java).equalTo("category", query).findAll()
 
                 mTaskAdapter.mTaskList = mRealm.copyFromRealm(results2)
 
                 listView1.adapter = mTaskAdapter
 
                 mTaskAdapter.notifyDataSetChanged()
+
+                return true
             }
         })
 

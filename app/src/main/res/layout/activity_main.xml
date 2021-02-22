@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:iconifiedByDefault="false"
+        android:focusable="false"
         android:queryHint="検索" />
 
     <ListView
@@ -27,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/large_icon"
+        android:src="@drawable/plus"
         app:backgroundTint="@color/colorPrimary"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

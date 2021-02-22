@@ -1,6 +1,5 @@
 package com.example.taskapp
 
-import android.R
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -35,13 +34,15 @@ class TaskAdapter(context: Context): BaseAdapter() {
 
         val textView1 = view.findViewById<TextView>(R.id.textView1)
         val textView2 = view.findViewById<TextView>(R.id.textView2)
+        val textView3 = view.findViewById<TextView>(R.id.textView3)
 
+        textView1.text = mTaskList[position].category
 
-        textView1.text = mTaskList[position].title
+        textView2.text = mTaskList[position].title
 
         val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.JAPANESE)
         val date = mTaskList[position].date
-        textView2.text = simpleDateFormat.format(date)
+        textView3.text = simpleDateFormat.format(date)
 
         return view
     }
