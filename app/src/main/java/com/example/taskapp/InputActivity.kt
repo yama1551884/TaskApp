@@ -80,6 +80,7 @@ class InputActivity : AppCompatActivity() {
                 mHour = calendar.get(Calendar.HOUR_OF_DAY)
                 mMinute = calendar.get(Calendar.MINUTE)
             } else {
+                category_edit_text.setText(mTask!!.category)
                 title_edit_text.setText(mTask!!.title)
                 content_edit_text.setText(mTask!!.contents)
 
